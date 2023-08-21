@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import { Spell } from 'drizzle/schema';
-
-interface SpellResponse {
-  spell: Spell
-}
+import { SpellResponse } from 'types';
 
 const route = useRoute()
 const [id, ...rest] = route.params.id.toString().split(/-(.*)/s)

@@ -1,6 +1,7 @@
-import { items } from "../../../drizzle/schema";
-import { db } from "../../sqlite-service";
+import { items } from "~/drizzle/schema";
+import { db } from "~/server/sqlite-service";
 import { eq } from "drizzle-orm";
+
 export default defineEventHandler(async (event) => {
   try {
     // get id as function parameter from route params

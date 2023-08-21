@@ -836,7 +836,7 @@ export const eventlog = sqliteTable("eventlog", {
 	description: text("description").notNull(),
 	eventNid: integer("event_nid").default(0).notNull(),
 });
-
+*/
 export const factionList = sqliteTable("faction_list", {
 	id: integer("id").primaryKey().notNull(),
 	name: text("name").default('').notNull(),
@@ -850,7 +850,7 @@ export const factionList = sqliteTable("faction_list", {
 		id: uniqueIndex("faction_list_id").on(table.id),
 	}
 });
-
+/*
 export const factionListMod = sqliteTable("faction_list_mod", {
 	id: integer("id").primaryKey().notNull(),
 	factionId: integer("faction_id").notNull(),
@@ -1465,7 +1465,7 @@ export const npcSpellsEntries = sqliteTable("npc_spells_entries", {
 		spellsidSpellid: uniqueIndex("npc_spells_entries_spellsid_spellid").on(table.npcSpellsId, table.spellid),
 	}
 });
-
+*/
 export const npcTypes = sqliteTable("npc_types", {
 	id: integer("id").primaryKey().notNull(),
 	name: text("name").notNull(),
@@ -1565,7 +1565,7 @@ export const npcTypes = sqliteTable("npc_types", {
 	stuckBehavior: integer("stuck_behavior").default(0).notNull(),
 	flymode: integer("flymode").default(-1),
 });
-
+/*
 export const npcTypesMetadata = sqliteTable("npc_types_metadata", {
 	npcTypesId: integer("npc_types_id").default(0).primaryKey().notNull(),
 	isPkMob: integer("isPKMob").default(0).notNull(),
@@ -2845,5 +2845,7 @@ export const zoneStateDump = sqliteTable("zone_state_dump", {
 });
 */
 
+export type Faction = InferModel<typeof factionList>;
 export type Item = InferModel<typeof items>;
+export type Npc = InferModel<typeof npcTypes>;
 export type Spell = InferModel<typeof spellsNew>;
