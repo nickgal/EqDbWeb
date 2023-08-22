@@ -10,6 +10,7 @@
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
   font-size: smaller;
+  line-height: 110%;
 
   height: 300px;
   padding: 55px 100px;
@@ -18,7 +19,8 @@
 }
 .details-window .item-icon {
   float: right;
-  padding: 10px;
+  margin: 10px;
   filter: drop-shadow(0 2px 5px #333);
+  scale: 1.5;
 }
 </style>

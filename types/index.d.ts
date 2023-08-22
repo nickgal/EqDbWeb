@@ -26,6 +26,14 @@ export interface NpcsResponse {
   npcs: Npc[]
 }
 
+export interface RaceResponse {
+  race: Race
+}
+
+export interface RacesResponse {
+  races: Race[]
+}
+
 export interface SpellResponse {
   spell: Spell
 }

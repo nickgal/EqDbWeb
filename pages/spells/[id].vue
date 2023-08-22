@@ -5,11 +5,12 @@ const route = useRoute()
 const [id, ...rest] = route.params.id.toString().split(/-(.*)/s)
 const { data } = await useFetch<SpellResponse>(`/api/spells/${id}`)
 
-const hasSlug = !!rest.join('')
+const slugParam = rest.join('')
 const spellName = data?.value?.spell?.name
-if (!hasSlug && spellName) {
+const slug = slugify(spellName)
+if (spellName && slugParam != slug) {
   await navigateTo({
-    path: `${route.path}-${slugify(spellName)}`,
+    path: route.path.replace(route.params.id.toString(), `${id}-${slug}`),
     replace: true
   })
 }

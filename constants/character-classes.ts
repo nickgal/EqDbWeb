@@ -1,0 +1,17 @@
+export default [
+  { id: 0, name: 'Warrior', shortName: 'WAR', mask: 1 << 0 },
+  { id: 1, name: 'Cleric', shortName: 'CLR', mask: 1 << 1 },
+  { id: 2, name: 'Paladin', shortName: 'PAL', mask: 1 << 2 },
+  { id: 3, name: 'Ranger', shortName: 'RNG', mask: 1 << 3 },
+  { id: 4, name: 'Shadow Knight', shortName: 'SHD', mask: 1 << 4 },
+  { id: 5, name: 'Druid', shortName: 'DRU', mask: 1 << 5 },
+  { id: 6, name: 'Monk', shortName: 'MNK', mask: 1 << 6 },
+  { id: 7, name: 'Bard', shortName: 'BRD', mask: 1 << 7 },
+  { id: 8, name: 'Rogue', shortName: 'ROG', mask: 1 << 8 },
+  { id: 9, name: 'Shaman', shortName: 'SHM', mask: 1 << 9 },
+  { id: 10, name: 'Necromancer', shortName: 'NEC', mask: 1 << 10 },
+  { id: 11, name: 'Wizard', shortName: 'WIZ', mask: 1 << 11 },
+  { id: 12, name: 'Magician', shortName: 'MAG', mask: 1 << 12 },
+  { id: 13, name: 'Enchanter', shortName: 'ENC', mask: 1 << 13 },
+  { id: 14, name: 'Beastlord', shortName: 'BST', mask: 1 << 14 },
+]

@@ -1938,7 +1938,7 @@ export const questGlobals = sqliteTable("quest_globals", {
 		pk0: primaryKey(table.charid, table.name, table.npcid, table.zoneid)
 	}
 });
-
+*/
 export const races = sqliteTable("races", {
 	name: text("name").default('').primaryKey().notNull(),
 	id: integer("id").default(0).notNull(),
@@ -1949,7 +1949,7 @@ export const races = sqliteTable("races", {
 		id: index("races_id").on(table.id),
 	}
 });
-
+/*
 export const raidDetails = sqliteTable("raid_details", {
 	raidid: integer("raidid").default(0).primaryKey().notNull(),
 	loottype: integer("loottype").default(0).notNull(),
@@ -2848,4 +2848,5 @@ export const zoneStateDump = sqliteTable("zone_state_dump", {
 export type Faction = InferModel<typeof factionList>;
 export type Item = InferModel<typeof items>;
 export type Npc = InferModel<typeof npcTypes>;
+export type Race = InferModel<typeof races>;
 export type Spell = InferModel<typeof spellsNew>;

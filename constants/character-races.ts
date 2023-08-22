@@ -1,0 +1,16 @@
+export default [
+  { id: 0, name: 'Human', shortName: 'HUM', mask: 1 << 0 },
+  { id: 1, name: 'Barbarian', shortName: 'BAR', mask: 1 << 1 },
+  { id: 2, name: 'Erudite', shortName: 'ERU', mask: 1 << 2 },
+  { id: 3, name: 'Wood Elf', shortName: 'ELF', mask: 1 << 3 },
+  { id: 4, name: 'High Elf', shortName: 'HIE', mask: 1 << 4 },
+  { id: 5, name: 'Dark_Elf', shortName: 'DEF', mask: 1 << 5 },
+  { id: 6, name: 'Half Elf', shortName: 'HEF', mask: 1 << 6 },
+  { id: 7, name: 'Dwarf', shortName: 'DWF', mask: 1 << 7 },
+  { id: 8, name: 'Troll', shortName: 'TRL', mask: 1 << 8 },
+  { id: 9, name: 'Ogre', shortName: 'OGR', mask: 1 << 9 },
+  { id: 10, name: 'Halfling', shortName: 'HFL', mask: 1 << 10 },
+  { id: 11, name: 'Gnome', shortName: 'GNM', mask: 1 << 11 },
+  { id: 12, name: 'Iksar', shortName: 'IKS', mask: 1 << 12 },
+  { id: 13, name: 'Vah Shir', shortName: 'VAH', mask: 1 << 13 },
+]
