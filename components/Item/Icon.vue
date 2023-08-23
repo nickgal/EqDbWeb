@@ -5,7 +5,6 @@ const props = defineProps<{
   item: Item
 }>()
 
-// FIXME: handle icons not found in bmpwad
 function getIconStyles(item: Item) {
   const sheetIndexOffset = 500
   const sheetRows = 12
@@ -14,8 +13,8 @@ function getIconStyles(item: Item) {
   const iconSizePx = 40
 
   const sheetIndex = Math.trunc((item.icon - sheetIndexOffset) / (sheetSize))
-  const iconId = (item.icon - sheetIndexOffset) + sheetIndex * sheetSize
-  const iconColumn = Math.trunc(iconId / sheetRows)
+  const iconId = (item.icon - sheetIndexOffset)
+  const iconColumn = Math.trunc(iconId / sheetRows) % sheetColumns
   const iconRow = (iconId - (iconColumn * sheetRows)) % sheetRows
 
   return {
