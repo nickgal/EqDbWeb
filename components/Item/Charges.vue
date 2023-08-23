@@ -6,7 +6,7 @@ const props = defineProps<{
 }>()
 </script>
 <template>
-  <div v-if="item.maxcharges >= 0 && (item.clickeffect || item.scrolleffect)">
+  <div v-if="item.maxcharges >= 0 && (item.clickeffect > 0 || item.scrolleffect > 0)">
     <template v-if="item.clicktype == 3 || item.itemtype == 21">
       EXPENDABLE
     </template>
