@@ -15,13 +15,13 @@ const { data } = await useFetch<SpellResponse>(`/api/spells/${spellId}`, {
 const spellName = data?.value?.spell?.name
 </script>
 <template>
-  <div v-if="hasSpell && data">
+  <div v-if="hasSpell && data?.spell">
     Skill: {{ getSkillDescription(data.spell.skill) }}
     <br />
     Mana Cost: {{ data.spell.mana }}
     <br />
     Effect:
-    <NuxtLink :to="`/spells/${data.spell.id}-${slugify(spellName)}`">
+    <NuxtLink :to="`/spells/${spellId}-${slugify(spellName)}`">
       {{ data.spell.name }}
     </NuxtLink>
   </div>

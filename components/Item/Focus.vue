@@ -16,9 +16,9 @@ const spellName = data?.value?.spell?.name
 // TODO: figure out if (Worn) can be dynamic
 </script>
 <template>
-  <div v-if="hasFocus && data">
+  <div v-if="hasFocus && data?.spell">
     Focus Effect:
-    <NuxtLink :to="`/spells/${data.spell.id}-${slugify(spellName)}`">
+    <NuxtLink :to="`/spells/${spellId}-${slugify(spellName)}`">
       {{ data.spell.name }}
     </NuxtLink>
     (Worn)

@@ -45,9 +45,9 @@ function getClickTypeDescription(item: Item) {
 const castTime = props.item.casttime <= 0 ? 'Instant' : (props.item.casttime / 1000).toFixed(1)
 </script>
 <template>
-  <div v-if="hasSpell && data">
+  <div v-if="hasSpell && data?.spell">
     Effect:
-    <NuxtLink :to="`/spells/${data.spell.id}-${slugify(spellName)}`">
+    <NuxtLink :to="`/spells/${spellId}-${slugify(spellName)}`">
       {{ data.spell.name }}
     </NuxtLink>
     <span v-if="hasClick" :title="`Level: ${Math.max(item.clicklevel2, 1)}`">
