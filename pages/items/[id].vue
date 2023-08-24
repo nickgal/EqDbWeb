@@ -13,13 +13,17 @@ if (itemName && slugParam != slug) {
   router.replace(route.path.replace(route.params.id.toString(), `${id}-${slug}`))
 }
 
+defineOgImageScreenshot({
+  selector: '.item-details'
+})
+
 useSeoMeta({
   title: () => `${itemName} - Items`
 })
 </script>
 <template>
   <div v-if="data">
-    <ItemDetails :item="data.item" />
+    <ItemDetails :item="data.item" class="item-details"/>
     <hr>
       <dl>
         <template v-if="data.item.color > 0">

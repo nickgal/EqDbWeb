@@ -30,5 +30,6 @@ const props = defineProps<{
     <ItemClasses :item="item" />
     <ItemRaces :item="item" />
     <ItemDeities :item="item" />
+    <ItemPreview :item="item" />
   </DetailsWindow>
 </template>

@@ -14,9 +14,12 @@
     "@types/node": "^18.17.3",
     "@types/slug": "^5.0.4",
     "drizzle-kit": "^0.19.12",
-    "nuxt": "^3.6.5"
+    "nuxt": "^3.6.5",
+    "nuxt-og-image": "^1.5.9",
+    "playwright": "^1.37.1"
   },
   "dependencies": {
+    "@google/model-viewer": "^3.2.1",
     "better-sqlite3": "^8.5.1",
     "drizzle-orm": "^0.28.2",
     "slug": "^8.2.3"
