@@ -13,9 +13,9 @@ if (itemName && slugParam != slug) {
   router.replace(route.path.replace(route.params.id.toString(), `${id}-${slug}`))
 }
 
-defineOgImageScreenshot({
-  selector: '.item-details'
-})
+// defineOgImageScreenshot({
+//   selector: '.item-details'
+// })
 
 useSeoMeta({
   title: () => `${itemName} - Items`
