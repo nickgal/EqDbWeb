@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Item } from 'drizzle/schema'
 
+const config = useRuntimeConfig();
 const props = defineProps<{
   item: Item
 }>()
@@ -18,7 +19,7 @@ function getIconStyles(item: Item) {
   const iconRow = (iconId - (iconColumn * sheetRows)) % sheetRows
 
   return {
-    backgroundImage: `url(/dragitem0${sheetIndex + 1}.png)`,
+    backgroundImage: `url(${config.app.baseURL || '/'}dragitem0${sheetIndex + 1}.png)`,
     backgroundPosition: `-${iconSizePx * iconColumn}px -${iconSizePx * iconRow}px`,
     display: 'inline-block',
     height: `${iconSizePx}px`,
