@@ -37,6 +37,8 @@ jobs:
 
       - name: Generate
         run: npm run generate
+        env:
+          NUXT_APP_BASE_URL: /EqDbWeb/
 
       - name: Pages Deploy
         uses: peaceiris/actions-gh-pages@v3
