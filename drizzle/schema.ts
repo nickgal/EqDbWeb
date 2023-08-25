@@ -1,5 +1,5 @@
 import { sqliteTable, AnySQLiteColumn, primaryKey, integer, uniqueIndex, numeric, text, index, real, blob } from "drizzle-orm/sqlite-core"
-import { InferModel, sql } from "drizzle-orm"
+import { InferModel, sql, relations } from "drizzle-orm"
 
 /*
 export const aaActions = sqliteTable("aa_actions", {
@@ -1273,7 +1273,7 @@ export const logsysCategories = sqliteTable("logsys_categories", {
 	logToFile: integer("log_to_file").default(0),
 	logToGmsay: integer("log_to_gmsay").default(0),
 });
-
+*/
 export const lootdrop = sqliteTable("lootdrop", {
 	id: integer("id").primaryKey().notNull(),
 	name: text("name").default('').notNull(),
@@ -1319,7 +1319,7 @@ export const loottableEntries = sqliteTable("loottable_entries", {
 		pk0: primaryKey(table.lootdropId, table.loottableId)
 	}
 });
-
+/*
 export const mail = sqliteTable("mail", {
 	msgid: integer("msgid").primaryKey().notNull(),
 	charid: integer("charid").default(0).notNull(),
@@ -2850,3 +2850,25 @@ export type Item = InferModel<typeof items>;
 export type Npc = InferModel<typeof npcTypes>;
 export type Race = InferModel<typeof races>;
 export type Spell = InferModel<typeof spellsNew>;
+export type LootDrop = InferModel<typeof lootdrop>;
+export type LootDropEntry = InferModel<typeof lootdropEntries>;
+export type LootTable = InferModel<typeof loottable>;
+export type LootTableEntry = InferModel<typeof loottableEntries>;
+
+export const npcTypesRelations = relations(npcTypes, ({ one }) => ({
+	loottable: one(loottable, {
+		fields: [npcTypes.loottableId],
+		references: [loottable.id],
+	}),
+}));
+
+export const loottableRelations = relations(loottable, ({ many }) => ({
+	loottableEntries: many(loottableEntries),
+}));
+
+export const loottableEntriesRelations = relations(loottableEntries, ({ one }) => ({
+	loottable: one(loottable, {
+		fields: [loottableEntries.loottableId],
+		references: [loottable.id],
+	}),
+}));

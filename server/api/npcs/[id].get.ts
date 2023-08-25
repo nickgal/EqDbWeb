@@ -6,11 +6,16 @@ export default defineEventHandler(async (event) => {
   try {
     // get id as function parameter from route params
     const npcId = event.context.params?.id as string;
-    const npc = db
-      .select()
-      .from(npcTypes)
-      .where(eq(npcTypes.id, parseInt(npcId)))
-      .get();
+    const npc = await db.query.npcTypes.findFirst({
+      where: eq(npcTypes.id, parseInt(npcId)),
+      with: {
+        loottable: {
+          with: {
+            loottableEntries: true
+          }
+        },
+      },
+    });
     return { npc };
   } catch (e: any) {
     throw createError({
