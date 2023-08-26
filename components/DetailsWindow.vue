@@ -12,10 +12,16 @@
   font-size: smaller;
   line-height: 110%;
 
+  color: black;
+  text-shadow: none;
+
   height: 300px;
   padding: 55px 100px;
   box-sizing: border-box;
   aspect-ratio: 925 / 388;
+}
+.details-window a, .details-window a:visited {
+  color: #36b
 }
 .details-window .item-icon {
   float: right;
