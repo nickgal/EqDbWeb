@@ -1,4 +1,4 @@
-import { Faction, Item, Spell } from 'drizzle/schema';
+import { Faction, Item, Spell, Zone } from 'drizzle/schema';
 
 // TODO: move response types & api calls into repositories
 
@@ -40,4 +40,12 @@ export interface SpellResponse {
 
 export interface SpellsResponse {
   spells: Spell[]
+}
+
+export interface ZoneResponse {
+  zone: Zone
+}
+
+export interface ZonesResponse {
+  zones: Zone[]
 }

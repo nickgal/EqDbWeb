@@ -2698,7 +2698,7 @@ export const webdataServers = sqliteTable("webdata_servers", {
 	name: text("name"),
 	connected: integer("connected").default(0).notNull(),
 });
-
+*/
 export const zone = sqliteTable("zone", {
 	shortName: text("short_name"),
 	id: integer("id").primaryKey().notNull(),
@@ -2795,7 +2795,7 @@ export const zone = sqliteTable("zone", {
 		zoneidnumber: index("zone_zoneidnumber").on(table.zoneidnumber),
 	}
 });
-
+/*
 export const zoneserverAuth = sqliteTable("zoneserver_auth", {
 	host: text("host").default('').primaryKey().notNull(),
 	note: text("note"),
@@ -2854,6 +2854,7 @@ export type LootDrop = InferModel<typeof lootdrop>;
 export type LootDropEntry = InferModel<typeof lootdropEntries>;
 export type LootTable = InferModel<typeof loottable>;
 export type LootTableEntry = InferModel<typeof loottableEntries>;
+export type Zone = InferModel<typeof zone>;
 
 export const npcTypesRelations = relations(npcTypes, ({ one }) => ({
 	loottable: one(loottable, {
