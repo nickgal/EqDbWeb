@@ -18,8 +18,10 @@ useSeoMeta({
 })
 </script>
 <template>
-  <div v-if="data">
+  <div v-if="data?.npc">
     {{ npcName }}
+    <hr>
+      <NpcLootTable :npc="data.npc" />
     <hr>
     <code>
       {{ data.npc }}

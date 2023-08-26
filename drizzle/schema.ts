@@ -2867,9 +2867,17 @@ export const loottableRelations = relations(loottable, ({ many }) => ({
 	loottableEntries: many(loottableEntries),
 }));
 
-export const loottableEntriesRelations = relations(loottableEntries, ({ one }) => ({
+export const loottableEntriesRelations = relations(loottableEntries, ({ one, many }) => ({
 	loottable: one(loottable, {
 		fields: [loottableEntries.loottableId],
 		references: [loottable.id],
+	}),
+	lootdropEntries: many(lootdropEntries),
+}));
+
+export const lootdropEntriesRelations = relations(lootdropEntries, ({ one }) => ({
+	loottableEntry: one(loottableEntries, {
+		fields: [loottableEntries.lootdropId],
+		references: [lootdropEntries.lootdropId],
 	}),
 }));

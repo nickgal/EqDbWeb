@@ -11,7 +11,11 @@ export default defineEventHandler(async (event) => {
       with: {
         loottable: {
           with: {
-            loottableEntries: true
+            loottableEntries: {
+              with: {
+                lootdropEntries: true
+              }
+            }
           }
         },
       },
