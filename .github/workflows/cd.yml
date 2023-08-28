@@ -39,6 +39,7 @@ jobs:
         run: npm run generate
         env:
           NUXT_APP_BASE_URL: /EqDbWeb/
+          NODE_OPTIONS: "--max_old_space_size=16384"
 
       - name: Pages Deploy
         uses: peaceiris/actions-gh-pages@v3
