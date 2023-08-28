@@ -2027,7 +2027,7 @@ export const skillDifficulty = sqliteTable("skill_difficulty", {
 	difficulty: real("difficulty").default(0).notNull(),
 	name: text("name").notNull(),
 });
-
+*/
 export const spawn2 = sqliteTable("spawn2", {
 	id: integer("id").primaryKey().notNull(),
 	spawngroupId: integer("spawngroupID").default(0).notNull(),
@@ -2067,7 +2067,7 @@ export const spawnentry = sqliteTable("spawnentry", {
 		pk0: primaryKey(table.npcId, table.spawngroupId)
 	}
 });
-
+/*
 export const spawngroup = sqliteTable("spawngroup", {
 	id: integer("id").primaryKey().notNull(),
 	name: text("name").default('').notNull(),
@@ -2855,6 +2855,8 @@ export type LootDropEntry = InferModel<typeof lootdropEntries>;
 export type LootTable = InferModel<typeof loottable>;
 export type LootTableEntry = InferModel<typeof loottableEntries>;
 export type Zone = InferModel<typeof zone>;
+export type Spawn = InferModel<typeof spawn2>;
+export type SpawnEntry = InferModel<typeof spawnentry>;
 
 export const npcTypesRelations = relations(npcTypes, ({ one }) => ({
 	loottable: one(loottable, {
@@ -2880,4 +2882,23 @@ export const lootdropEntriesRelations = relations(lootdropEntries, ({ one }) => 
 		fields: [loottableEntries.lootdropId],
 		references: [lootdropEntries.lootdropId],
 	}),
+}));
+
+export const spawn2Relations = relations(spawn2, ({ one, many }) => ({
+	zone: one(zone, {
+		fields: [spawn2.zone],
+		references: [zone.shortName],
+	}),
+	spawnEntries: many(spawnentry),
+}));
+
+export const spawnentryRelations = relations(spawnentry, ({ one }) => ({
+	spawn: one(spawn2, {
+		fields: [spawnentry.spawngroupId],
+		references: [spawn2.spawngroupId],
+	}),
+}));
+
+export const zoneRelations = relations(zone, ({ many }) => ({
+	spawns: many(spawn2)
 }));

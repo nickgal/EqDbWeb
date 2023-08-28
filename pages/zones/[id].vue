@@ -21,6 +21,8 @@ useSeoMeta({
   <div v-if="data">
     {{ zoneName }}
     <hr>
+    <ZoneSpawns :zone="data.zone" />
+    <hr>
     <code>
       {{ data.zone }}
     </code>

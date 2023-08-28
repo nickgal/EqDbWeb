@@ -5,6 +5,11 @@ const props = defineProps<{
   npc: Npc
 }>()
 
+// TODO: need to figure out if nitro caching each item api is better than doing a items?id=x&id=y
+// const itemIds = props.npc?.loottable?.loottableEntries?.flatMap((lte) => {
+//   return lte.lootdropEntries.map(lde => lde.itemId )
+// })
+
 </script>
 <template>
   <div v-if="npc?.loottable">
