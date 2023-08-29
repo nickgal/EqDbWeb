@@ -6,13 +6,7 @@ const props = defineProps<{
 }>()
 
 const { data } = await useFetch<ItemResponse>(`/api/items/${props.itemId}`)
-
 </script>
 <template>
-  <div v-if="data?.item">
-    <ItemIcon :item="data.item" />
-    <NuxtLink :to="`/items/${itemId}-${slugify(data.item.name)}`">
-      {{ data.item.name }}
-    </NuxtLink>
-  </div>
+  <ItemLink v-if="data?.item" :item="data.item" />
 </template>

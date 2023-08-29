@@ -6,12 +6,7 @@ const props = defineProps<{
 }>()
 
 const { data } = await useFetch<NpcResponse>(`/api/npcs/${props.npcId}`)
-
 </script>
 <template>
-  <div v-if="data?.npc">
-    <NuxtLink :to="`/npcs/${data.npc.id}-${slugify(data.npc.name)}`">
-      {{ data.npc.name }}
-    </NuxtLink>
-  </div>
+  <NpcLink v-if="data?.npc" :npc="data.npc" />
 </template>

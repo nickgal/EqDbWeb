@@ -13,7 +13,7 @@ const props = defineProps<{
 </script>
 <template>
   <div v-if="npc?.loottable">
-    {{ itemIds }}
+    <h3>Items dropped</h3>
     <ul v-if="npc.loottable.loottableEntries">
       <li v-for="(loottableEntry) in npc.loottable.loottableEntries">
         <ul v-if="loottableEntry">

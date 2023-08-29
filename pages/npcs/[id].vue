@@ -22,6 +22,7 @@ useSeoMeta({
     {{ npcName }}
     <hr>
       <NpcLootTable :npc="data.npc" />
+      <NpcMerchantLists :npc="data.npc" />
     <hr>
     <code>
       {{ data.npc }}

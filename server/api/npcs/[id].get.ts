@@ -18,6 +18,7 @@ export default defineEventHandler(async (event) => {
             }
           }
         },
+        merchantlists: true,
       },
     });
     return { npc };

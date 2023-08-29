@@ -1335,7 +1335,7 @@ export const mail = sqliteTable("mail", {
 		charid: index("mail_charid").on(table.charid),
 	}
 });
-
+*/
 export const merchantlist = sqliteTable("merchantlist", {
 	merchantid: integer("merchantid").default(0).notNull(),
 	slot: integer("slot").default(0).notNull(),
@@ -1354,7 +1354,7 @@ export const merchantlist = sqliteTable("merchantlist", {
 		pk0: primaryKey(table.merchantid, table.slot)
 	}
 });
-
+/*
 export const merchantlistTemp = sqliteTable("merchantlist_temp", {
 	npcid: integer("npcid").default(0).notNull(),
 	slot: integer("slot").default(0).notNull(),
@@ -2857,12 +2857,14 @@ export type LootTableEntry = InferModel<typeof loottableEntries>;
 export type Zone = InferModel<typeof zone>;
 export type Spawn = InferModel<typeof spawn2>;
 export type SpawnEntry = InferModel<typeof spawnentry>;
+export type MerchantList = InferModel<typeof merchantlist>;
 
-export const npcTypesRelations = relations(npcTypes, ({ one }) => ({
+export const npcTypesRelations = relations(npcTypes, ({ one, many }) => ({
 	loottable: one(loottable, {
 		fields: [npcTypes.loottableId],
 		references: [loottable.id],
 	}),
+	merchantlists: many(merchantlist),
 }));
 
 export const loottableRelations = relations(loottable, ({ many }) => ({
@@ -2901,4 +2903,11 @@ export const spawnentryRelations = relations(spawnentry, ({ one }) => ({
 
 export const zoneRelations = relations(zone, ({ many }) => ({
 	spawns: many(spawn2)
+}));
+
+export const merchantlistRelations = relations(merchantlist, ({ one }) => ({
+	npcType: one(npcTypes, {
+		fields: [merchantlist.merchantid],
+		references: [npcTypes.merchantId],
+	}),
 }));
