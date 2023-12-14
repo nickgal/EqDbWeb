@@ -7,7 +7,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "preparedb": "wget https://eq-web.gitlab.io/db/takp-202307.db"
+    "preparedb": "wget https://eq-web.gitlab.io/db/quarm_2023-12-13-19_15.db"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
